@@ -1,0 +1,100 @@
+FastaPlus version 1.0
+=======================
+
+FULL NAME:
+
+C++ container for Fasta records 
+
+
+
+
+
+DESCRIPTION:
+
+The container is designed to provide a set of easy to use data formatting utilities for (multi)fasta formated files. In addition it facilitates (DNA:to be implemented)AA sequence cleaning strategies like low complexity segment filtering and dubious chrarcter replacment. Moreover, the library enables a unique indexing of individual records based on their taxonnomy identifier as well as particular substring position. 
+
+
+
+
+
+SYNOPSIS:
+
+    #include<string>
+    #include<Fasta>
+
+    using namespace fasta;
+
+
+
+    string myseq("HI MY NAME IS ROBERT and this Is my Sequence!!")
+
+/* Make Fasta object */
+
+    /* Construction */
+    Fasta<int> NewFastaObj(in, taxid);
+
+
+/*  Usage */
+
+
+   cout << "This file contains:" << NewFastaObj.GetObjSummary("TotSeq")     << " sequences\n";
+   cout << "This file contains:" << NewFastaObj.GetObjSummary("TotSeqSize") << " sequence characters\n";
+  
+
+   /* Load from inside a program always assumes a clean record */
+
+   string id = NewFastaObj.LoadFastaRec("MySeq", myseq, "10001");
+
+
+                                                                
+   unordered_map<string,string> ret = NewFastaObj.GetFastaOnly(id);
+   
+   cout << "I added this sequence to my container: " << ret[id] << endl; 
+                                                     // prints: HI MY NAME IS ROBERT and this Is my Sequence!!
+
+   cout << "My name is: "                            << NewFastaObj.GetSubStr(id,15,20) << endl;
+                                                    // prints:  ROBERT 
+
+   cout << "And you can locate my sequence in "      << out  << "directory under " << id << " ID\n"; 
+                                                    // prints --- and 0000000000000000000100016693/0
+   
+   NewFastaObj.DmpFastaAll(out);                    // dumps the content to "out" file
+
+   NewFastaObj.Clear()                              // explicite destructor
+
+
+
+
+
+CONSTRUCTION AND RUNTIME COMPLEXITY:
+
+     -
+
+ACKNOWLEDGMENTS:
+
+     -
+
+
+AUTHOR:
+
+Robert Bakaric <rbakaric@irb.hr>, <bakaric@evolbio.mpg.de>
+
+COPYRIGHT AND LICENSE:
+
+ * Copyright 2015 Robert Bakaric
+ * 
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301, USA.
+
