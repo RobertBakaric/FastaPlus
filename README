@@ -1,4 +1,4 @@
-FastaPlus version 1.0
+FastaPlus version 0.01
 =======================
 
 FULL NAME:
@@ -50,17 +50,17 @@ SYNOPSIS:
    unordered_map<string,string> ret = NewFastaObj.GetFastaOnly(id);
    
    cout << "I added this sequence to my container: " << ret[id] << endl; 
-                                                     // prints: HI MY NAME IS ROBERT and this Is my Sequence!!
+     // prints: HI MY NAME IS ROBERT and this Is my Sequence!!
 
-   cout << "My name is: "                            << NewFastaObj.GetSubStr(id,15,20) << endl;
-                                                    // prints:  ROBERT 
+   cout << "My name is: "  << NewFastaObj.GetSubStr(id,15,20) << endl;
+     // prints:  ROBERT 
 
-   cout << "And you can locate my sequence in "      << out  << "directory under " << id << " ID\n"; 
-                                                    // prints --- and 0000000000000000000100016693/0
+   cout << "And you can locate my sequence in " << out  << "directory under " << id << " ID\n"; 
+     // prints --- and 0000000000000000000100016693/0
    
-   NewFastaObj.DmpFastaAll(out);                    // dumps the content to "out" file
+   NewFastaObj.DmpFastaAll(out);  // dumps the content to "out" file
 
-   NewFastaObj.Clear()                              // explicite destructor
+   NewFastaObj.Clear() // explicite destructor
 
 
 
